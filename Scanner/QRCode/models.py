@@ -18,7 +18,7 @@ def upload_location(instance, filename):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    description =models.TextField()
+    description =models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     qr_code = models.ImageField(upload_to=upload_location, null=True, blank=True)
