@@ -38,7 +38,8 @@ def qr_code_save_call_back(sender, instance, *args, **kwargs):
         )
 
         instance.auth_token = get_random_string(length=AUTH_TOKEN_LENGTH)
-        qr.add_data(instance.user.username, instance.auth_token)
+        context = [instance.user.username, instance.auth_token]
+        qr.add_data(context)
         qr.make(fit=True)
 
         img = qr.make_image(fill_color="black", back_color="white")
