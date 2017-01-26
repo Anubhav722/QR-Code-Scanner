@@ -42,7 +42,7 @@ def qr_code_save_call_back(sender, instance, *args, **kwargs):
         qr.add_data(context)
         qr.make(fit=True)
 
-        img = qr.make_image(fill_color="black", back_color="white")
+        img = qr.make_image(fill_color="red", back_color="yellow")
         buffer = StringIO.StringIO()
         img.save(buffer)
         filename = 'events-%s.png' % (instance.user.username)
