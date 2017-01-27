@@ -51,7 +51,9 @@ def qr_code_save_call_back(sender, instance, *args, **kwargs):
 
         instance.qr_code.save(filename, filebuffer)
 
-#
+
+# Understanding the time module
+
 # import datetime
 # from datetime import timedelta
 # x=datetime.datetime.now()
@@ -68,3 +70,14 @@ def qr_code_save_call_back(sender, instance, *args, **kwargs):
 # print datetime.date.today()
 # print x.hour
 # print x.minute
+
+# Understanding the timer now
+# import sched, time
+# s = sched.scheduler(time.time, time.sleep)
+# def do_something(sc):
+#     print "Doing stuff..."
+#     # do your stuff
+#     s.enter(60, 1, do_something, (sc,))
+#
+# s.enter(60, 1, do_something, (s,))
+# s.run()
