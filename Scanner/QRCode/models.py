@@ -9,7 +9,7 @@ import qrcode
 from django.utils.crypto import get_random_string
 import StringIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
-
+from datetime import datetime
 # Create your models here.
 AUTH_TOKEN_LENGTH = 15
 
@@ -50,3 +50,21 @@ def qr_code_save_call_back(sender, instance, *args, **kwargs):
             buffer, None, filename, 'image/png', buffer.len, None)
 
         instance.qr_code.save(filename, filebuffer)
+
+#
+# import datetime
+# from datetime import timedelta
+# x=datetime.datetime.now()
+# print datetime.datetime.now()
+# # add 1 day
+# print datetime.datetime.now() + datetime.timedelta(days=1)
+#
+# # substract 60 seconds
+# print datetime.datetime.now() - datetime.timedelta(seconds=60)
+#
+# #Add 2 years.
+# print datetime.datetime.now() + datetime.timedelta(days=730)
+#
+# print datetime.date.today()
+# print x.hour
+# print x.minute
