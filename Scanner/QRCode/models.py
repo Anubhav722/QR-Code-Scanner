@@ -71,7 +71,7 @@ def qr_code_save_call_back(sender, instance, *args, **kwargs):
 # print x.hour
 # print x.minute
 
-# Understanding the timer now
+# Understanding the timer now # look for threading too i.e. import threading
 # import sched, time
 # s = sched.scheduler(time.time, time.sleep)
 # def do_something(sc):
