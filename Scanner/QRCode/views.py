@@ -1,15 +1,23 @@
 from django.shortcuts import render
 from django.views.generic.edit import FormView, CreateView
 from django.views.generic.list import ListView
+
+from django.contrib.auth.models import User
 from .models import UserProfile
 from .forms import UserProfileForm
 # Create your views here.
-#
-# class UserCreate(CreateView):
-#     form_class = UserProfileForm
-#     model = UserProfile
-#
-#     fields = ['user', 'description']
+
+class UserRegister(FormView):
+    form_class = UserProfileForm
+    model = UserProfile
+    template_name = 'register.html'
+    success_url = '/check/index/'
+
+    def form_valid(self, form):
+        user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
+        user.save()
+        return super(UserRegister, self).form_valid(form)
+    # fields = ['user', 'description']
 
 class IndexView(ListView):
     queryset = UserProfile.objects.all()
