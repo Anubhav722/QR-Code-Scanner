@@ -1,5 +1,7 @@
 from django.conf.urls import url
-from .views import IndexView, UserRegister
+from .views import IndexView,
+
+from .views import register
 
 urlpatterns = [
     url(r'^index/', IndexView.as_view(), name='index'),

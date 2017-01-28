@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^check/', include('QRCode.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 
 
